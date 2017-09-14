@@ -1,3 +1,5 @@
 $(document).ready(function(){
-  // your code here!
+  $("#add-new-picture-button").click(() =>
+    $("#new-image").show()
+  )
 })
