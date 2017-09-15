@@ -36,9 +36,9 @@
           <div class="modal-content">
             <form id="photo-form">
               <label for="image_url">Image Url</label>
-              <input id='image-url' type='text' name='image_url' />
+              <input id='image-url' type='text' name='image_url' onkeyup="getImgInfo()" />
               <label for="caption">Caption</label>
-              <input id='caption' type='text' name='caption' />
+              <input id='caption' type='text' name='caption' onkeyup="getCaptionInfo()" />
               <input id='new-image-submit-button' value='Add picture' type='submit' />
             </form>
           </div>
