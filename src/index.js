@@ -4,7 +4,7 @@
 //   )
 // })
 
-
+var imgInfo = []
 function pictureModel() {
   var addNewPictureButton = document.getElementById("add-new-picture-button")
   var newImageModel = document.getElementById("new-image")
@@ -23,13 +23,24 @@ function submitPicture() {
   var imgInfo = [["http://cdn.skim.gs/images/homer-simpson-doughnuts/what-homer-simpson-taught-us-about-doughnuts", "doh"]]
   var submitPictureClick = document.getElementById("new-image-submit-button")
 
-  submitPictureClick.addEventListener("click", storeImgInfo)
-  // submitPictureClick.addEventListener("click", () => )
+  submitPictureClick.addEventListener("click", diplayPictures)
 }
 
 function diplayPictures() {
+  var newImageModel = document.getElementById("new-image")
+  newImageModel.style.display = 'none'
 
+  var imagesContainer = document.getElementById("images-container")
+  storeImgInfo()
 
+  imagesContainer.innerHTML = imgInfo.map(info =>
+    `<div>
+      <h1>
+        ${info[1]}
+      </h1>
+         <img src=${info[0]} alt="Mountain View" style="width:304px;height:228px;">
+    </div>`
+  )
 }
 
 function getCaptionInfo() {
@@ -44,12 +55,10 @@ function combineTheTwo() {
   return [getImgInfo(), getCaptionInfo()]
 }
 
-function storeImgInfo(event) {
+function storeImgInfo() {
   event.preventDefault()
-  var imgInfo = []
 
   imgInfo.push(combineTheTwo())
-  debugger
 }
 
 pictureModel()
